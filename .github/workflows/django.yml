@@ -34,6 +34,7 @@ jobs:
           if [  ${{ job.status }} == 'success' ]; then
               git config --local user.email "adeyanjuabiona@gmail.com"
               git config --local user.name "AlphaCodz"
+              git add .
               git commit -m "${{ steps.get_commit_message.outputs.commit_message }}"
               git push
           else
