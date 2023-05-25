@@ -29,9 +29,16 @@ jobs:
       - name: Run Tests
         run: |
           python manage.py test --settings=setup.settings
-
-
-
+      - name: Commit Changes
+        run: |
+          if [  ${{ job.status }} == 'success' ]; then
+              git config --local user.email "adeyanjuabiona@gmail.com"
+              git config --local user.name "AlphaCodz"
+              git commit -m "${{ steps.get_commit_message.outputs.commit_message }}"
+              git push
+          else
+              echo "Build failed. Skipping commit"
+          fi
 
 
 
