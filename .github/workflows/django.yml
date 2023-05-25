@@ -35,7 +35,7 @@ jobs:
               git config --local user.email "adeyanjuabiona@gmail.com"
               git config --local user.name "AlphaCodz"
               git add .
-              git commit -m "Build Successful: ${{ steps.get_commit_message.outputs.commit_message }}"
+              git commit -m "CI Build Successful: ${{ steps.get_commit_message.outputs.commit_message }}"
               git push
           else
               echo "Build failed. Skipping commit"
